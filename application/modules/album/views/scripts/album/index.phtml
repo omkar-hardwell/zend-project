@@ -1,0 +1,32 @@
+<!-- <br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Album</b> and script/action name <b>index</b></p>
+</div>
+ -->
+ <?php
+ $title = 'My albums';
+ //$this->headTitle($this->albums);
+ //echo '<pre>'; echo $this->albums[0]->title; exit;
+ ?>
+ <h1><?php echo $this->escape($title); ?></h1>
+ <p>
+     <a href="/zend-project/album/album/add/">Add new album</a>
+ </p>
+ 
+ <table class="table" border="1" style="border-collapse: collapse;">
+ <tr>
+ 	 <th>Sr No.</th>
+     <th>Title</th>
+     <th>Artist</th>
+     <th>Action</th>
+ </tr>
+ <?php for($i=0;$i<count($this->albums);$i++){ ?>
+ <tr>
+ 	 <td><?php echo ($i+1); ?></td>
+     <td><?php echo $this->escape($this->albums[$i]->title);?></td>
+     <td><?php echo $this->escape($this->albums[$i]->artist);?></td>
+     <td><a href="/zend-project/album/album/edit/<?php echo $this->albums[$i]->id; ?>">Edit</a>
+     <a href="/zend-project/album/album/delete/<?php echo $this->albums[$i]->id; ?>">Delete</a></td>
+ </tr>
+ <?php } ?>
+ </table>
